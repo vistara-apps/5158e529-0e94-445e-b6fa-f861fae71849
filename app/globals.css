@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Professional Finance Theme - Dark Navy with Gold Accents */
+  --color-bg: #0a1628;
+  --color-fg: #f8fafc;
+  --color-accent: #ffd700;
+  --color-primary: #1e40af;
+  --color-surface: #1e293b;
+  --color-border: #334155;
+  --color-muted: #64748b;
+}
+
+[data-theme="celo"] {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-accent: #fbcc5c;
+  --color-primary: #fbcc5c;
+  --color-surface: #1a1a1a;
+  --color-border: #333333;
+  --color-muted: #666666;
+}
+
+[data-theme="solana"] {
+  --color-bg: #1a0d2e;
+  --color-fg: #ffffff;
+  --color-accent: #9945ff;
+  --color-primary: #14f195;
+  --color-surface: #2d1b4e;
+  --color-border: #4c2a85;
+  --color-muted: #8b5fbf;
+}
+
+[data-theme="base"] {
+  --color-bg: #0f172a;
+  --color-fg: #f1f5f9;
+  --color-accent: #0052ff;
+  --color-primary: #0052ff;
+  --color-surface: #1e293b;
+  --color-border: #334155;
+  --color-muted: #64748b;
+}
+
+[data-theme="coinbase"] {
+  --color-bg: #0c1426;
+  --color-fg: #f1f5f9;
+  --color-accent: #0052ff;
+  --color-primary: #0052ff;
+  --color-surface: #1a2332;
+  --color-border: #2d3748;
+  --color-muted: #718096;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-sm border border-border/50;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-primary text-bg px-6 py-3 rounded-lg font-medium hover:from-accent/90 hover:to-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-surface border border-border text-fg px-6 py-3 rounded-lg font-medium hover:bg-surface/80 transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border border-accent text-accent px-6 py-3 rounded-lg font-medium hover:bg-accent hover:text-bg transition-all duration-200;
+  }
+
+  .chat-bubble-user {
+    @apply bg-accent text-bg rounded-2xl rounded-br-md px-4 py-3 max-w-xs ml-auto;
+  }
+
+  .chat-bubble-bot {
+    @apply bg-surface border border-border rounded-2xl rounded-bl-md px-4 py-3 max-w-xs mr-auto;
+  }
+
+  .typing-indicator {
+    @apply flex space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-muted rounded-full animate-pulse;
+    animation-delay: var(--delay, 0ms);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(90deg, var(--color-accent), var(--color-primary)) 1;
+  }
+}
